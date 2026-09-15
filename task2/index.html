@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Тайга — четыре дня среди лесов и гор. Открой дикую природу и найди себя настоящего.">
+  <title>Тайга — найди себя настоящего</title>
+  <link rel="icon" href="img/campfire.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <header class="hero" id="top">
+    <div class="header-bar container">
+      <a class="brand" href="#top" aria-label="Тайга — на главную">
+        <img src="img/campfire.svg" width="42" height="48" alt="">
+        <span>CAMPING<strong>WILD</strong></span>
+      </a>
+      <nav class="navigation" aria-label="Основная навигация">
+        <a href="#wildlife">Дикая природа</a>
+        <a href="#route">Маршрут</a>
+        <a href="#contact">Связаться</a>
+      </nav>
+      <!-- По заданию на мобильном нужна только иконка, без логики открытия. -->
+      <span class="menu-icon" role="img" aria-label="Мобильное меню">
+        <span></span><span></span><span></span>
+      </span>
+    </div>
+    <div class="hero-content container">
+      <h1>ТАЙГА</h1>
+      <div class="hero-action">
+        <p>Проверь себя на прочность в лесах Сибири</p>
+        <a class="button button-light" href="#contact">Бросить вызов <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="wildlife section-grid" id="wildlife" aria-labelledby="wildlife-title">
+      <div class="section-copy">
+        <h2 id="wildlife-title">Дикие звери</h2>
+        <p class="subtitle">Столкновение с животными инстинктами</p>
+        <span class="divider" aria-hidden="true"></span>
+        <p>Окраины болот, заросшие клюквой, черникой и брусникой, привлекают к себе многих зверей, птиц и насекомых.</p>
+        <p>Ваш маршрут пролегает через места обитания оленей, лосей, лисиц, тетеревов, глухарей и, конечно, бурых медведей.</p>
+        <a class="button" href="#route">Победить страх <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="wildlife-photo">
+        <img src="img/bear.jpg" width="800" height="800" alt="Крупный план бурого медведя с широко открытой пастью" loading="lazy">
+      </figure>
+    </section>
+
+    <section class="route" id="route" aria-labelledby="route-title">
+      <img class="route-line" src="img/route.svg" width="1200" height="700" alt="" loading="lazy">
+      <div class="route-card">
+        <h2 id="route-title">По лесам и горам</h2>
+        <p class="subtitle">205 км за 4 дня — разбуди в себе зверя</p>
+        <span class="divider" aria-hidden="true"></span>
+        <div class="route-details">
+          <div>
+            <p>Вас сбрасывают с вертолёта в глухой тайге. С собой у вас будет всё необходимое и ничего лишнего: компас, прочная одежда, нож, топор, сухпаёк на 2 дня.</p>
+            <p>И инстинкт самосохранения.</p>
+          </div>
+          <img class="knife" src="img/knife.jpg" width="3300" height="2300" alt="Красный складной туристический нож" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="nature" aria-labelledby="nature-title">
+      <div class="nature-heading container">
+        <img class="berries" src="img/lingonberries.jpg" width="1280" height="960" alt="Спелая красная брусника среди зелёных листьев" loading="lazy">
+        <div>
+          <h2 id="nature-title">Найди себя настоящего</h2>
+          <p class="subtitle">Настройся на волну природной энергии</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-grid" id="contact" aria-labelledby="contact-title">
+      <div class="contact-copy">
+        <h2 id="contact-title">Тайга зовёт.<br>Ты готов?</h2>
+        <span class="divider" aria-hidden="true"></span>
+        <p>Оставь свои контакты и расскажи, о каком приключении мечтаешь.</p>
+      </div>
+      <!-- Только вёрстка: action и обработчик JavaScript не используются. -->
+      <form class="contact-form" aria-labelledby="contact-title" aria-describedby="form-note">
+        <div class="form-field">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" placeholder="Как тебя зовут?" autocomplete="given-name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+        <div class="form-field form-message">
+          <label for="message">Сообщение</label>
+          <textarea id="message" name="message" rows="4" placeholder="Расскажи о своём приключении" required></textarea>
+        </div>
+        <button class="button button-filled" type="button">Отправить <span aria-hidden="true">↗</span></button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner container">
+      <a class="footer-brand" href="#top">ТАЙГА<span>Найди себя настоящего</span></a>
+      <a class="footer-top" href="#top">Наверх <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+</body>
+</html>
