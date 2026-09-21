@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Список задач: добавляйте дела, отмечайте выполненные и переключайте фильтры.">
+  <title>Список задач</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Список задач</h1>
+      <p>Запишите дело, чтобы ничего не забыть.</p>
+    </header>
+
+    <form class="add-form" id="add-form">
+      <label for="task-input">Новая задача</label>
+      <div class="add-controls">
+        <input id="task-input" name="task" type="text" placeholder="Что нужно сделать?" autocomplete="off" required>
+        <button type="submit">Добавить</button>
+      </div>
+    </form>
+
+    <section class="tasks" aria-labelledby="tasks-title">
+      <div class="tasks-header">
+        <h2 id="tasks-title">Мои задачи</h2>
+        <p class="counts" id="counts" aria-live="polite">Осталось: 0, Выполнено: 0</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Фильтр задач">
+        <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Все</button>
+        <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Активные</button>
+        <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Завершённые</button>
+      </div>
+
+      <ul class="task-list" id="task-list" aria-label="Список задач"></ul>
+      <p class="empty-message" id="empty-message">Пока нет задач. Добавьте первую!</p>
+    </section>
+  </main>
+</body>
+</html>
