@@ -31,7 +31,11 @@ function render() {
 
     const text = document.createElement("span");
     text.className = "task-text";
-    text.textContent = `${task.id}. ${task.text}`;
+    text.textContent = task.text;
+
+    const id = document.createElement("span");
+    id.className = "task-id";
+    id.textContent = task.id;
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete-button";
@@ -39,7 +43,7 @@ function render() {
     deleteButton.textContent = "Удалить";
     deleteButton.setAttribute("aria-label", `Удалить: ${task.text}`);
 
-    item.append(checkbox, text, deleteButton);
+    item.append(checkbox, id, text, deleteButton);
     taskList.append(item);
   });
 
