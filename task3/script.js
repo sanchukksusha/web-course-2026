@@ -31,7 +31,7 @@ function render() {
 
     const text = document.createElement("span");
     text.className = "task-text";
-    text.textContent = task.text;
+    text.textContent = `${task.id}. ${task.text}`;
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete-button";
@@ -44,14 +44,21 @@ function render() {
   });
 
   const completedCount = tasks.filter((task) => task.completed).length;
-  counts.textContent = `Осталось: ${tasks.length - completedCount}, Выполнено: ${completedCount}`;
+
+  counts.textContent =
+    `Осталось: ${tasks.length - completedCount}, Выполнено: ${completedCount}`;
+
   emptyMessage.textContent = tasks.length === 0
     ? "Пока нет задач. Добавьте первую!"
     : "По этому фильтру задач нет.";
-  emptyMessage.hidden = visibleTasks.length > 0;
 
+  emptyMessage.hidden = visibleTasks.length > 0;
+}
+
+function updateFilterButtons() {
   filterButtons.forEach((button) => {
     const active = button.dataset.filter === currentFilter;
+
     button.classList.toggle("is-active", active);
     button.setAttribute("aria-pressed", String(active));
   });
@@ -59,38 +66,56 @@ function render() {
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+
   const text = input.value.trim();
   if (!text) return;
 
-  tasks.push({ id: nextId++, text, completed: false });
+  tasks.unshift({
+    id: nextId++,
+    text,
+    completed: false
+  });
+
   input.value = "";
   input.focus();
+
   render();
 });
 
 taskList.addEventListener("change", (event) => {
   if (!event.target.matches(".task-check")) return;
+
   const id = Number(event.target.closest(".task-item").dataset.id);
   const task = tasks.find((item) => item.id === id);
+
   if (!task) return;
+
   task.completed = event.target.checked;
   render();
 });
 
 taskList.addEventListener("click", (event) => {
   if (!event.target.matches(".delete-button")) return;
+
   const id = Number(event.target.closest(".task-item").dataset.id);
   const index = tasks.findIndex((task) => task.id === id);
+
   if (index === -1) return;
+
   tasks.splice(index, 1);
   render();
 });
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
+    if (currentFilter === button.dataset.filter) return;
+
     currentFilter = button.dataset.filter;
+
+    updateFilterButtons();
     render();
   });
 });
 
+updateFilterButtons();
 render();
