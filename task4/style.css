@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 280px;
+  color: #29322b;
+  background: #eef2ed;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.game {
+  width: min(100% - 32px, 620px);
+  margin: 48px auto;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #d9e2d9;
+  border-radius: 16px;
+  box-shadow: 0 12px 36px #1e352315;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: clamp(30px, 6vw, 42px);
+}
+
+h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.rules {
+  margin: 0 0 28px;
+  color: #667069;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+input {
+  min-width: 0;
+  min-height: 48px;
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #aab7ac;
+  border-radius: 8px;
+  font-size: 18px;
+  letter-spacing: 0.15em;
+}
+
+button {
+  min-height: 44px;
+  padding: 10px 18px;
+  color: #ffffff;
+  background: #43654b;
+  border: 1px solid #43654b;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2f4d37;
+  border-color: #2f4d37;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #91b798;
+  outline-offset: 2px;
+}
+
+button:disabled,
+input:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.message {
+  min-height: 26px;
+  margin: 12px 0 24px;
+  color: #a03636;
+  font-weight: 700;
+}
+
+.message.success {
+  color: #2f7040;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d9e2d9;
+}
+
+.game-info p {
+  margin: 0;
+}
+
+.history {
+  display: grid;
+  gap: 8px;
+  padding-left: 28px;
+  margin: 18px 0;
+}
+
+.history li {
+  padding: 10px 12px;
+  background: #f4f7f3;
+  border-radius: 8px;
+}
+
+.empty-history {
+  margin: 18px 0;
+  color: #737d75;
+  text-align: center;
+}
+
+.empty-history[hidden] {
+  display: none;
+}
+
+.new-game-button {
+  color: #43654b;
+  background: #ffffff;
+}
+
+.new-game-button:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 480px) {
+  .game {
+    margin: 16px auto;
+    padding: 20px;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .controls button {
+    width: 100%;
+  }
+}
