@@ -15,7 +15,7 @@ const newGameButton = document.querySelector("#new-game-button");
 function generateNumber() {
   const digits = [];
 
-  while (digits.length < 4) {
+  while (digits.length < 6) {
     const digit = Math.floor(Math.random() * 10);
 
     if (!digits.includes(digit)) digits.push(digit);
@@ -25,11 +25,11 @@ function generateNumber() {
 }
 
 function validateGuess(guess) {
-  if (!/^\d{4}$/.test(guess)) {
+  if (!/^\d{6}$/.test(guess)) {
     return "Введите ровно 4 цифры.";
   }
 
-  if (new Set(guess).size !== 4) {
+  if (new Set(guess).size !== 6) {
     return "Все цифры должны быть разными.";
   }
 
@@ -121,10 +121,10 @@ form.addEventListener("submit", (event) => {
   });
   renderHistory();
 
-  if (result.bulls === 4) {
+  if (result.cows >= 4) {
     gameFinished = true;
     setControlsDisabled(true);
-    showMessage(`Победа! Угадано за ${attempts.length} попыток.`, true);
+    showMessage(`Победа! Угадано за ${attempts.length} попыток. Загаданное число ${secretNumber}`, true);
     return;
   }
 
