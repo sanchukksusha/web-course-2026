@@ -8,6 +8,17 @@ const sectors = document.querySelectorAll(".sector");
 const startButton = document.querySelector("#start-button");
 const level = document.querySelector("#level");
 const message = document.querySelector("#message");
+const sounds = [
+  new Audio("sounds/green.mp3"),
+  new Audio("sounds/red.mp3"),
+  new Audio("sounds/yellow.mp3"),
+  new Audio("sounds/blue.mp3")
+];
+
+sounds.forEach((sound) => {
+  sound.preload = "auto";
+  sound.volume = 0.4;
+});
 
 function setSectorsDisabled(disabled) {
   sectors.forEach((sector) => {
@@ -26,6 +37,12 @@ function stopTimer() {
   timerId = null;
 }
 
+function playSound(index) {
+  const sound = sounds[index];
+  sound.currentTime = 0;
+  sound.play().catch(() => {});
+}
+
 function showSequence(index) {
   if (!gameActive) return;
 
@@ -41,6 +58,7 @@ function showSequence(index) {
 
   const sector = sectors[sequence[index]];
   sector.classList.add("active");
+  playSound(sequence[index]);
 
   timerId = setTimeout(() => {
     sector.classList.remove("active");
@@ -87,6 +105,7 @@ function handleSectorClick(event) {
   if (!gameActive || isShowing) return;
 
   const selectedColor = Number(event.currentTarget.dataset.color);
+  playSound(selectedColor);
 
   if (selectedColor !== sequence[playerIndex]) {
     endGame();
