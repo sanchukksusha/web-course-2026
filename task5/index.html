@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Игра Симон говорит">
+  <title>Симон говорит</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="game">
+    <h1>Симон говорит</h1>
+    <p class="rules">Запомните последовательность цветов и повторите её.</p>
+
+    <div class="game-info">
+      <p>Уровень: <strong id="level">0</strong></p>
+      <p id="message" aria-live="polite">Нажмите «Старт».</p>
+    </div>
+
+    <div class="sectors" aria-label="Цветные кнопки игры">
+      <button class="sector sector-green" type="button" data-color="0" aria-label="Зелёный" disabled></button>
+      <button class="sector sector-red" type="button" data-color="1" aria-label="Красный" disabled></button>
+      <button class="sector sector-yellow" type="button" data-color="2" aria-label="Жёлтый" disabled></button>
+      <button class="sector sector-blue" type="button" data-color="3" aria-label="Синий" disabled></button>
+    </div>
+
+    <button class="start-button" id="start-button" type="button">Старт</button>
+  </main>
+</body>
+</html>
