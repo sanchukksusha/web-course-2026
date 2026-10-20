@@ -1,0 +1,137 @@
+:root {
+  --text: #4d4038;
+  --muted: #7d6e64;
+  --cream: #fffaf1;
+  --brown: #8b6652;
+  --brown-dark: #6f4f3f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  min-width: 280px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 32px 0;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 20%, #f2d8c9 0 9%, transparent 28%),
+    radial-gradient(circle at 85% 80%, #d7dfca 0 10%, transparent 30%),
+    #f4eee5;
+  font-family: Arial, Helvetica, sans-serif;
+  place-items: center;
+}
+
+button {
+  font: inherit;
+}
+
+.game {
+  width: min(100% - 32px, 560px);
+  padding: 40px;
+  text-align: center;
+  background: var(--cream);
+  border: 1px solid #eadbc9;
+  border-radius: 28px;
+  box-shadow: 0 22px 55px #74594726;
+}
+
+h1 {
+  margin: 0 0 10px;
+  color: #5d493e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 7vw, 46px);
+  font-weight: 600;
+}
+
+.rules {
+  margin: 0 auto 24px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 52px;
+  margin-bottom: 18px;
+  padding: 12px 18px;
+  background: #f7eee3;
+  border: 1px solid #eadbc9;
+  border-radius: 14px;
+}
+
+.game-info p {
+  margin: 0;
+}
+
+#score {
+  color: var(--brown-dark);
+  font-size: 20px;
+}
+
+#message {
+  color: var(--muted);
+  text-align: right;
+}
+
+#game-canvas {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto 24px;
+  background: #eef1e7;
+  border: 8px solid #eadbc9;
+  border-radius: 16px;
+}
+
+.start-button {
+  min-width: 170px;
+  min-height: 48px;
+  padding: 11px 26px;
+  color: #ffffff;
+  background: var(--brown);
+  border: 1px solid var(--brown);
+  border-radius: 24px;
+  box-shadow: 0 7px 16px #74513d33;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.start-button:hover {
+  background: var(--brown-dark);
+  border-color: var(--brown-dark);
+  box-shadow: 0 9px 20px #74513d42;
+  transform: translateY(-2px);
+}
+
+.start-button:focus-visible {
+  outline: 3px solid #b68f76;
+  outline-offset: 4px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px 0;
+  }
+
+  .game {
+    padding: 24px 20px;
+    border-radius: 22px;
+  }
+
+  .game-info {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  #message {
+    text-align: center;
+  }
+}
