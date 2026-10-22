@@ -47,6 +47,8 @@
       }
     }
 
+
+
     checkCollision(head, ateApple) {
       const hitWall =
         head.x < 0 ||
@@ -57,15 +59,15 @@
       const body = ateApple ? this.snake : this.snake.slice(0, -1);
       const hitSnake = body.some((part) => part.x === head.x && part.y === head.y);
 
-      return hitWall || hitSnake;
+      return hitSnake;
     }
 
     moveSnake() {
       this.direction = this.nextDirection;
 
       const head = {
-        x: this.snake[0].x + this.direction.x,
-        y: this.snake[0].y + this.direction.y
+        x: (this.snake[0].x + this.direction.x + this.gridSize) % this.gridSize,
+        y: (this.snake[0].y + this.direction.y + this.gridSize) % this.gridSize
       };
       const ateApple = head.x === this.apple.x && head.y === this.apple.y;
 
